@@ -7,8 +7,8 @@ import { ActionButton, ActionButtonProps } from './ActionButton'
 export const DeleteNoteButton: FC<ActionButtonProps> = ({ children, className, ...props }) => {
   const deleteNote = useSetAtom(deleteNoteAtom)
 
-  const handleDeletion = () => {
-    deleteNote()
+  const handleDeletion = async () => {
+    await deleteNote()
   }
 
   return (
