@@ -12,7 +12,7 @@ export const RootLayout: FC<ComponentProps<'main'>> = ({ children, className, ..
 export const Sidebar: FC<ComponentProps<'aside'>> = ({ children, className, ...props }) => {
   return (
     <aside
-      className={twMerge('w-[250px] mt-10 h-[100vh+10px] overflow-hidden', className)}
+      className={twMerge('w-[250px] mt-10 h-[100vh+10px] overflow-auto', className)}
       {...props}
     >
       {children}
