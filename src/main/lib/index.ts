@@ -1,7 +1,7 @@
 import { appDirectoryName, fileEncoding } from '@shared/constant'
 import { NoteInfo } from '@shared/models'
-import { GetNotes, ReadNote } from '@shared/types'
-import { ensureDir, readdir, readFile, stat } from 'fs-extra'
+import { GetNotes, ReadNote, WriteNote } from '@shared/types'
+import { ensureDir, readdir, readFile, stat, writeFile } from 'fs-extra'
 import { homedir } from 'os'
 import path from 'path'
 
@@ -39,4 +39,14 @@ export const readNote: ReadNote = async (filename) => {
   console.log(path.join(rootDir, `${filename}.md`), 'aello9', filename)
 
   return readFile(path.join(rootDir, `${filename}.md`), { encoding: fileEncoding })
+}
+
+export const writeNote: WriteNote = (fileName, content) => {
+  const rootDir = getRootDir()
+
+  console.log('writing note ', fileName)
+
+  return writeFile(path.join(rootDir, `${fileName}.md`), content, {
+    encoding: fileEncoding
+  })
 }
